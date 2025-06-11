@@ -44,7 +44,7 @@ void showSuccessDialog(
                 width: 150,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: appColor,
+                    backgroundColor: secondryColor,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),

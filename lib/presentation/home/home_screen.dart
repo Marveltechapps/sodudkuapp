@@ -102,7 +102,7 @@ class HomeScreen extends StatelessWidget {
               backgroundColor: const Color(0xFFFAFAFA),
               appBar: selectedIndex == 1 || selectedIndex == 2
                   ? AppBar(
-                      backgroundColor: appColor,
+                      backgroundColor: whitecolor,
                       leading: IconButton(
                         onPressed: () {
                           context.read<HomeBloc>().add(
@@ -111,7 +111,7 @@ class HomeScreen extends StatelessWidget {
                         },
                         icon: Icon(
                           Icons.arrow_back_ios_new,
-                          color: whitecolor,
+                          // color: whitecolor,
                           size: 16,
                         ),
                       ),

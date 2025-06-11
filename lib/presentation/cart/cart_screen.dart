@@ -290,7 +290,7 @@ class CartScreen extends StatelessWidget {
             appIcon: Image.asset(loadGif, fit: BoxFit.fill),
             child: Scaffold(
               appBar: AppBar(
-                backgroundColor: appColor,
+                backgroundColor: whitecolor,
                 leading: IconButton(
                   onPressed: () {
                     // Navigator.pop(context);
@@ -308,7 +308,7 @@ class CartScreen extends StatelessWidget {
                   },
                   icon: Icon(
                     Icons.arrow_back_ios_new,
-                    color: whitecolor,
+                    //  color: whitecolor,
                     size: 16,
                   ),
                 ),
@@ -327,7 +327,7 @@ class CartScreen extends StatelessWidget {
                               vertical: 5,
                             ),
                             decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: appColor,
                               borderRadius: BorderRadius.circular(20),
                             ),
                             child: Text(
@@ -371,7 +371,7 @@ class CartScreen extends StatelessWidget {
                                 );
                               },
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color(0xFF034703),
+                                backgroundColor: secondryColor,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(32),
                                 ),
@@ -379,7 +379,10 @@ class CartScreen extends StatelessWidget {
                               ),
                               child: Text(
                                 'Browse Now',
-                                style: Theme.of(context).textTheme.bodyMedium,
+                                style: TextStyle(
+                                  color: whitecolor,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           ),
@@ -588,9 +591,7 @@ class CartScreen extends StatelessWidget {
                                                     ).size.width /
                                                     4,
                                                 decoration: BoxDecoration(
-                                                  color: const Color(
-                                                    0xFF326A32,
-                                                  ),
+                                                  color: secondryColor,
                                                   borderRadius:
                                                       BorderRadius.circular(20),
                                                 ),
@@ -643,9 +644,7 @@ class CartScreen extends StatelessWidget {
                                                                 .center,
                                                             style: GoogleFonts.poppins(
                                                               color:
-                                                                  const Color(
-                                                                    0xFF326A32,
-                                                                  ),
+                                                                  secondryColor,
                                                               fontSize: 14,
                                                               fontWeight:
                                                                   FontWeight
@@ -830,8 +829,7 @@ class CartScreen extends StatelessWidget {
                                                         color:
                                                             tipAmount ==
                                                                 value.toString()
-                                                            ? DeliveryTipStyles
-                                                                  .lightGreen
+                                                            ? otherColor
                                                             : Colors.white,
                                                         borderRadius:
                                                             BorderRadius.circular(
@@ -842,7 +840,7 @@ class CartScreen extends StatelessWidget {
                                                               tipAmount ==
                                                                   value
                                                                       .toString()
-                                                              ? appColor
+                                                              ? secondryColor
                                                               : DeliveryTipStyles
                                                                     .borderGrey,
                                                         ),
@@ -960,7 +958,7 @@ class CartScreen extends StatelessWidget {
                                                   0,
                                                 ),
                                                 decoration: BoxDecoration(
-                                                  color: appColor,
+                                                  color: secondryColor,
                                                   borderRadius:
                                                       BorderRadius.circular(18),
                                                 ),
@@ -1729,14 +1727,14 @@ class CartScreen extends StatelessWidget {
                                           children: [
                                             Icon(
                                               Icons.location_on_sharp,
-                                              color: appColor,
+                                              color: secondryColor,
                                               size: 15,
                                             ),
                                             Text(
                                               "Change",
                                               style: TextStyle(
                                                 fontSize: 14,
-                                                color: appColor,
+                                                color: secondryColor,
                                               ),
                                             ),
                                           ],
@@ -1788,7 +1786,7 @@ class CartScreen extends StatelessWidget {
                                       Navigator.pushNamed(context, '/payment');
                                     },
                                     style: ElevatedButton.styleFrom(
-                                      backgroundColor: const Color(0xFF034703),
+                                      backgroundColor: secondryColor,
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(32),
                                       ),
@@ -1799,9 +1797,10 @@ class CartScreen extends StatelessWidget {
                                     ),
                                     child: Text(
                                       'CONTINUE TO PAYMENT',
-                                      style: Theme.of(
-                                        context,
-                                      ).textTheme.bodyMedium,
+                                      style: TextStyle(
+                                        color: whitecolor,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
                                   ),
                                 ),

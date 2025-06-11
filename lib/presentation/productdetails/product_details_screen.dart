@@ -231,7 +231,8 @@ class ProductDetailsScreen extends StatelessWidget {
                                                                 20,
                                                               ),
                                                           border: Border.all(
-                                                            color: appColor,
+                                                            color:
+                                                                secondryColor,
                                                           ),
                                                         ),
                                                         child: Center(
@@ -466,13 +467,11 @@ class ProductDetailsScreen extends StatelessWidget {
                                                       vertical: 1,
                                                     ),
                                                 decoration: BoxDecoration(
-                                                  color: const Color(
-                                                    0xFF326A32,
-                                                  ),
+                                                  color: secondryColor,
                                                   borderRadius:
                                                       BorderRadius.circular(20),
                                                   border: Border.all(
-                                                    color: appColor,
+                                                    color: secondryColor,
                                                   ),
                                                 ),
                                                 child: Row(
@@ -527,9 +526,7 @@ class ProductDetailsScreen extends StatelessWidget {
                                                           style:
                                                               GoogleFonts.poppins(
                                                                 color:
-                                                                    const Color(
-                                                                      0xFF326A32,
-                                                                    ),
+                                                                    secondryColor,
                                                                 fontSize: 14,
                                                                 fontWeight:
                                                                     FontWeight
@@ -585,7 +582,7 @@ class ProductDetailsScreen extends StatelessWidget {
                                     height: 56,
                                     width: double.infinity,
                                     decoration: BoxDecoration(
-                                      color: appColor,
+                                      color: secondryColor,
                                       borderRadius: BorderRadius.circular(20),
                                     ),
                                     child: Center(
@@ -1259,7 +1256,7 @@ class ProductDetailsScreen extends StatelessWidget {
                           height: 56,
                           width: double.infinity,
                           decoration: BoxDecoration(
-                            color: appColor,
+                            color: secondryColor,
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Center(
@@ -1630,15 +1627,13 @@ class ProductDetailsScreen extends StatelessWidget {
                                                             vertical: 1,
                                                           ),
                                                       decoration: BoxDecoration(
-                                                        color: const Color(
-                                                          0xFF326A32,
-                                                        ),
+                                                        color: secondryColor,
                                                         borderRadius:
                                                             BorderRadius.circular(
                                                               20,
                                                             ),
                                                         border: Border.all(
-                                                          color: appColor,
+                                                          color: secondryColor,
                                                         ),
                                                       ),
                                                       child: Row(
@@ -1929,8 +1924,8 @@ class ProductDetailsScreen extends StatelessWidget {
                                   backgroundColor: whitecolor,
                                   collapsedBackgroundColor: whitecolor,
                                   shape: Border.all(color: whitecolor),
-                                  iconColor: appColor,
-                                  collapsedIconColor: appColor,
+                                  iconColor: Colors.black,
+                                  collapsedIconColor: Colors.black,
                                   title: Text(
                                     'Product Information',
                                     style: TextStyle(fontSize: 14),
@@ -2147,10 +2142,9 @@ class ProductDetailsScreen extends StatelessWidget {
                                                                   horizontal: 8,
                                                                   vertical: 4,
                                                                 ),
-                                                            decoration: const BoxDecoration(
-                                                              color: Color(
-                                                                0xFF034703,
-                                                              ),
+                                                            decoration: BoxDecoration(
+                                                              color:
+                                                                  secondryColor,
                                                               borderRadius:
                                                                   BorderRadius.only(
                                                                     topLeft:
@@ -2464,9 +2458,7 @@ class ProductDetailsScreen extends StatelessWidget {
                                                                                         .cartQuantity ==
                                                                                     0
                                                                                 ? whitecolor
-                                                                                : const Color(
-                                                                                    0xFF326A32,
-                                                                                  ),
+                                                                                : secondryColor,
                                                                             borderRadius: BorderRadius.circular(
                                                                               20,
                                                                             ),
@@ -2527,9 +2519,7 @@ class ProductDetailsScreen extends StatelessWidget {
                                                                                         .toString(),
                                                                                     textAlign: TextAlign.center,
                                                                                     style: GoogleFonts.poppins(
-                                                                                      color: const Color(
-                                                                                        0xFF326A32,
-                                                                                      ),
+                                                                                      color: secondryColor,
                                                                                       fontSize: 14,
                                                                                       fontWeight: FontWeight.w500,
                                                                                     ),
