@@ -1,4 +1,4 @@
-# sodukuapp
+# sodakku
 
 A new Flutter project.
 

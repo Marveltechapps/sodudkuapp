@@ -1,6 +1,6 @@
 {
-    "name": "sodukuapp",
-    "short_name": "sodukuapp",
+    "name": "Sodakku",
+    "short_name": "Sodakku",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
