@@ -181,7 +181,7 @@ class BannerScreen extends StatelessWidget {
                                                     backgroundColor: whitecolor,
                                                     shape: RoundedRectangleBorder(
                                                       side: BorderSide(
-                                                        color: appColor,
+                                                        color: secondryColor,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -203,7 +203,7 @@ class BannerScreen extends StatelessWidget {
                                                   child: Text(
                                                     "Add",
                                                     style: GoogleFonts.poppins(
-                                                      color: appColor,
+                                                      color: secondryColor,
                                                       fontSize: 14,
                                                     ),
                                                   ),
@@ -217,13 +217,11 @@ class BannerScreen extends StatelessWidget {
                                                       vertical: 1,
                                                     ),
                                                 decoration: BoxDecoration(
-                                                  color: const Color(
-                                                    0xFF326A32,
-                                                  ),
+                                                  color: secondryColor,
                                                   borderRadius:
                                                       BorderRadius.circular(20),
                                                   border: Border.all(
-                                                    color: appColor,
+                                                    color: secondryColor,
                                                   ),
                                                 ),
                                                 child: Row(
@@ -276,9 +274,7 @@ class BannerScreen extends StatelessWidget {
                                                           style:
                                                               GoogleFonts.poppins(
                                                                 color:
-                                                                    const Color(
-                                                                      0xFF326A32,
-                                                                    ),
+                                                                    secondryColor,
                                                                 fontSize: 14,
                                                                 fontWeight:
                                                                     FontWeight
@@ -333,7 +329,7 @@ class BannerScreen extends StatelessWidget {
                                     height: 56,
                                     width: double.infinity,
                                     decoration: BoxDecoration(
-                                      color: appColor,
+                                      color: secondryColor,
                                       borderRadius: BorderRadius.circular(20),
                                     ),
                                     child: Center(
@@ -636,14 +632,14 @@ class BannerScreen extends StatelessWidget {
           }
           return Scaffold(
             appBar: AppBar(
-              backgroundColor: appColor,
+              backgroundColor: whitecolor,
               leading: IconButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
                 icon: Icon(
                   Icons.arrow_back_ios_new,
-                  color: whitecolor,
+                  //   color: whitecolor,
                   size: 16,
                 ),
               ),
@@ -781,8 +777,8 @@ class BannerScreen extends StatelessWidget {
                                                     horizontal: 8,
                                                     vertical: 4,
                                                   ),
-                                              decoration: const BoxDecoration(
-                                                color: Color(0xFF034703),
+                                              decoration: BoxDecoration(
+                                                color: secondryColor,
                                                 borderRadius: BorderRadius.only(
                                                   topLeft: Radius.circular(20),
                                                   bottomRight: Radius.circular(
@@ -952,7 +948,7 @@ class BannerScreen extends StatelessWidget {
                                                           20,
                                                         ),
                                                     border: Border.all(
-                                                      color: appColor,
+                                                      color: secondryColor,
                                                     ),
                                                   ),
                                                   height: 27,
@@ -967,7 +963,8 @@ class BannerScreen extends StatelessWidget {
                                                             TextAlign.center,
                                                         style:
                                                             GoogleFonts.poppins(
-                                                              color: appColor,
+                                                              color:
+                                                                  secondryColor,
                                                               fontSize: 12,
                                                               fontWeight:
                                                                   FontWeight
@@ -984,9 +981,7 @@ class BannerScreen extends StatelessWidget {
                                                       vertical: 1,
                                                     ),
                                                 decoration: BoxDecoration(
-                                                  color: const Color(
-                                                    0xFF326A32,
-                                                  ),
+                                                  color: secondryColor,
                                                   borderRadius:
                                                       BorderRadius.circular(20),
                                                   border: Border.all(
@@ -1045,9 +1040,7 @@ class BannerScreen extends StatelessWidget {
                                                         style:
                                                             GoogleFonts.poppins(
                                                               color:
-                                                                  const Color(
-                                                                    0xFF326A32,
-                                                                  ),
+                                                                  secondryColor,
                                                               fontSize: 14,
                                                               fontWeight:
                                                                   FontWeight
@@ -1101,7 +1094,7 @@ class BannerScreen extends StatelessWidget {
                       height: 56,
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        color: appColor,
+                        color: secondryColor,
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Center(

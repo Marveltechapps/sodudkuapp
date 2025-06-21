@@ -22,14 +22,14 @@ class NotificationsScreen extends StatelessWidget {
         builder: (context, state) {
           return Scaffold(
             appBar: AppBar(
-              backgroundColor: appColor,
+              backgroundColor: whitecolor,
               leading: IconButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
                 icon: Icon(
                   Icons.arrow_back_ios_new,
-                  color: whitecolor,
+                  // color: whitecolor,
                   size: 16,
                 ),
               ),

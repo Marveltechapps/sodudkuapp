@@ -8,12 +8,12 @@ class PaymentManagementScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: appColor,
+        backgroundColor: whitecolor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back_ios_new, color: whitecolor, size: 16),
+          icon: Icon(Icons.arrow_back_ios_new, size: 16),
         ),
         elevation: 0,
         title: Text("Payment Management"),

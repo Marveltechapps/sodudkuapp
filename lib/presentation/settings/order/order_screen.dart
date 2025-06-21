@@ -605,14 +605,14 @@ class OrderScreen extends StatelessWidget {
           return Scaffold(
             backgroundColor: whitecolor,
             appBar: AppBar(
-              backgroundColor: appColor,
+              backgroundColor: whitecolor,
               leading: IconButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
                 icon: Icon(
                   Icons.arrow_back_ios_new,
-                  color: whitecolor,
+                  //  color: whitecolor,
                   size: 16,
                 ),
               ),
@@ -642,7 +642,7 @@ class OrderScreen extends StatelessWidget {
                             selectedIndex = 1;
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFF034703),
+                            backgroundColor: secondryColor,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(32),
                             ),
@@ -650,7 +650,11 @@ class OrderScreen extends StatelessWidget {
                           ),
                           child: Text(
                             'Browse Now',
-                            style: Theme.of(context).textTheme.bodyMedium,
+                            style: TextStyle(
+                              color: whitecolor,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),

@@ -153,13 +153,14 @@ class YourLocationScreen extends StatelessWidget {
             }
           }
           return Scaffold(
+            backgroundColor: whitecolor,
             appBar: AppBar(
               backgroundColor: whitecolor,
               leading: IconButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                icon: Icon(Icons.arrow_back_ios),
+                icon: Icon(Icons.arrow_back_ios, size: 16),
               ),
               title: Text("Your Location", style: TextStyle(fontSize: 18)),
             ),

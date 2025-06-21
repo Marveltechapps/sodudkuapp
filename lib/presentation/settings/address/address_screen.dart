@@ -61,15 +61,16 @@ class AddressScreen extends StatelessWidget {
             isLoading: state is AddressLoadingState,
             appIcon: Image.asset(loadGif, fit: BoxFit.fill),
             child: Scaffold(
+              backgroundColor: whitecolor,
               appBar: AppBar(
-                backgroundColor: appColor,
+                backgroundColor: whitecolor,
                 leading: IconButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
                   icon: Icon(
                     Icons.arrow_back_ios_new,
-                    color: whitecolor,
+                    //   color: whitecolor,
                     size: 16,
                   ),
                 ),
@@ -319,7 +320,7 @@ class AddressScreen extends StatelessWidget {
                     //     EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 10),
                     height: 45,
                     decoration: BoxDecoration(
-                      color: const Color.fromRGBO(3, 71, 3, 1),
+                      color: secondryColor,
                       borderRadius: BorderRadius.circular(30),
                     ),
                     width: MediaQuery.of(context).size.width,

@@ -51,18 +51,14 @@ class AddAddressStyles {
   static ButtonStyle addressLabelButtonStyle = OutlinedButton.styleFrom(
     foregroundColor: borderColor,
     side: const BorderSide(color: borderColor),
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(40),
-    ),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
     padding: const EdgeInsets.symmetric(horizontal: 23, vertical: 5),
   );
 
   static ButtonStyle saveButtonStyle = ElevatedButton.styleFrom(
     backgroundColor: primaryGreen,
     foregroundColor: Colors.white,
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(32),
-    ),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
     padding: const EdgeInsets.symmetric(vertical: 11),
   );
 }

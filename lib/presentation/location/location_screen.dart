@@ -60,22 +60,20 @@ class LocationScreen extends StatelessWidget {
             controller.clear();
           }
           return Scaffold(
+            backgroundColor: whitecolor,
             appBar: AppBar(
-              backgroundColor: const Color.fromRGBO(3, 71, 3, 1),
+              //   backgroundColor: whitecolor,
               leading: IconButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
                 icon: Icon(
                   Icons.arrow_back_ios_new,
-                  color: whitecolor,
+                  //  color: whitecolor,
                   size: 16,
                 ),
               ),
-              title: Text(
-                "Location",
-                style: TextStyle(color: whitecolor, fontSize: 18),
-              ),
+              title: Text("Location", style: TextStyle(fontSize: 18)),
             ),
             body: Column(
               children: [

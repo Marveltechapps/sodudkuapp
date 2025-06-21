@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sodakku/utils/constant.dart';
 
 class PaymentScreen extends StatelessWidget {
   const PaymentScreen({super.key});
@@ -6,9 +7,7 @@ class PaymentScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Payment'),
-      ),
+      appBar: AppBar(backgroundColor: whitecolor, title: const Text('Payment')),
     );
   }
 }

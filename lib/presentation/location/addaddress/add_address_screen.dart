@@ -10,6 +10,7 @@ import 'package:sodakku/presentation/widgets/success_dialog_widget.dart';
 import 'package:sodakku/utils/constant.dart';
 import '../../widgets/cart/add_address_styles.dart';
 
+// ignore: must_be_immutable
 class AddAddress extends StatelessWidget {
   final Placemark place;
   final String screenType;
@@ -92,15 +93,16 @@ class AddAddress extends StatelessWidget {
             );
           }
           return Scaffold(
-            backgroundColor: AddAddressStyles.backgroundColor,
+            backgroundColor: whitecolor,
             appBar: AppBar(
+              backgroundColor: whitecolor,
               leading: IconButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
                 icon: Icon(
                   Icons.arrow_back_ios_new,
-                  color: whitecolor,
+                  //  color: whitecolor,
                   size: 16,
                 ),
               ),
@@ -234,7 +236,7 @@ class AddAddress extends StatelessWidget {
             }
           },
           style: OutlinedButton.styleFrom(
-            side: const BorderSide(color: AddAddressStyles.primaryGreen),
+            side: BorderSide(color: secondryColor),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(32),
             ),
@@ -430,7 +432,14 @@ class AddAddress extends StatelessWidget {
           //   // Handle save address
           // }
         },
-        style: AddAddressStyles.saveButtonStyle,
+        style: ElevatedButton.styleFrom(
+          backgroundColor: secondryColor,
+          foregroundColor: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(32),
+          ),
+          padding: const EdgeInsets.symmetric(vertical: 11),
+        ),
         child: const Text(
           'Save Address',
           style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),

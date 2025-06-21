@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:sodakku/utils/constant.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

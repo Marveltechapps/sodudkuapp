@@ -93,7 +93,7 @@ class OtpScreen extends StatelessWidget {
               elevation: 0,
             ),
             body: SingleChildScrollView(
-              child: Container(
+              child: SizedBox(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height,
                 // decoration: BoxDecoration(

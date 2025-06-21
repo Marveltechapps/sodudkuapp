@@ -33,15 +33,16 @@ class CustomerSupportScreen extends StatelessWidget {
             isLoading: state is FaqsLoadingState,
             appIcon: Image.asset(loadGif, fit: BoxFit.fill),
             child: Scaffold(
+              backgroundColor: whitecolor,
               appBar: AppBar(
-                backgroundColor: appColor,
+                backgroundColor: whitecolor,
                 leading: IconButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
                   icon: Icon(
                     Icons.arrow_back_ios_new,
-                    color: whitecolor,
+                    // color: whitecolor,
                     size: 16,
                   ),
                 ),

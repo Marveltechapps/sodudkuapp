@@ -36,8 +36,10 @@ class HomeWidgetScreen extends StatelessWidget {
 
   static List<Category> categories = [];
   static List<BannerList> festivalbanners = [];
-  static List<BannerList> dailybanners = [];
-  static List<BannerList> offerbanners = [];
+  static List<BannerList> tenpercetofferbanners = [];
+  static List<BannerList> dealsbanners = [];
+  static List<BannerList> productoffersbanners = [];
+
   static ProductStyleResponse freshFruitsresponse = ProductStyleResponse();
   static ProductStyleResponse groceryEssentialsResponse =
       ProductStyleResponse();
@@ -201,16 +203,19 @@ class HomeWidgetScreen extends StatelessWidget {
             grabandEssential = state.grabandEssential;
           } else if (state is BannerLoadedState) {
             festivalbanners = [];
-            dailybanners = [];
-            offerbanners = [];
+            tenpercetofferbanners = [];
+            dealsbanners = [];
+            productoffersbanners = [];
             debugPrint(state.banners.message);
             for (int i = 0; i < state.banners.data!.length; i++) {
-              if (state.banners.data![i].bannerType == "festival") {
+              if (state.banners.data![i].bannerType == "Festival offers") {
                 festivalbanners.add(state.banners.data![i]);
-              } else if (state.banners.data![i].bannerType == "dailyUsage") {
-                dailybanners.add(state.banners.data![i]);
-              } else if (state.banners.data![i].bannerType == "offer") {
-                offerbanners.add(state.banners.data![i]);
+              } else if (state.banners.data![i].bannerType == "10% Offer ") {
+                tenpercetofferbanners.add(state.banners.data![i]);
+              } else if (state.banners.data![i].bannerType == "Deals offers") {
+                dealsbanners.add(state.banners.data![i]);
+              } else if (state.banners.data?[i].bannerType == "Product Offer") {
+                productoffersbanners.add(state.banners.data![i]);
               }
             }
           } else if (state is OrganicFreshFruitsLoadedState) {
@@ -493,146 +498,232 @@ class HomeWidgetScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Image.asset(
-                        homeTop,
-                        height: 100,
-                        width: double.infinity,
-                        fit: BoxFit.cover,
-                      ),
-                      Container(
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              hometopColor,
-                              whitecolor,
-                            ], // Start & End Colors
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
+                      Stack(
+                        children: [
+                          Image.asset(
+                            homeTop,
+                            // height: 100,
+                            width: double.infinity,
+                            fit: BoxFit.cover,
                           ),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(
-                            left: 12.0,
-                            right: 12.0,
-                          ),
-                          child: Column(
-                            spacing: 10,
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  InkWell(
-                                    onTap: () {
-                                      context.read<HomeBloc>().add(
-                                        GetLocationEvent(),
-                                      );
-                                    },
-                                    child: Row(
-                                      children: [
-                                        ConstrainedBox(
-                                          constraints: BoxConstraints(
-                                            maxWidth:
-                                                MediaQuery.of(
-                                                  context,
-                                                ).size.width *
-                                                0.6,
-                                          ),
-                                          child: Text(
-                                            location, // Your dynamic text here
-                                            overflow: TextOverflow.ellipsis,
-                                            style: Theme.of(
-                                              context,
-                                            ).textTheme.bodySmall,
-                                          ),
-                                        ),
-                                        SizedBox(width: 4),
-                                        Icon(
-                                          Icons.keyboard_arrow_down,
-                                          size: 20,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  InkWell(
-                                    onTap: () {
-                                      Navigator.pushNamed(context, '/settings');
-                                    },
-                                    child: SvgPicture.asset(
-                                      profilesvg,
-                                      height: 24,
-                                      width: 24,
-                                    ),
-                                  ),
-                                ],
+                          Positioned(
+                            bottom: 2,
+                            child: Padding(
+                              padding: const EdgeInsets.only(
+                                left: 12.0,
+                                right: 12.0,
                               ),
-                              GestureDetector(
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          SearchScreen(searchTitle: "Orange"),
-                                    ),
-                                  );
-                                },
-                                child: Container(
-                                  padding: EdgeInsets.symmetric(horizontal: 16),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(10),
-                                    border: Border.all(
-                                      color: greyColor.shade300,
-                                    ),
-                                  ),
-                                  //  width: size.width,
-                                  height: 50,
-                                  child: Row(
-                                    children: [
-                                      Icon(Icons.search, color: Colors.black54),
-                                      SizedBox(width: 8),
-                                      Text(
-                                        "Search For 'Orange'",
-                                        style: TextStyle(color: Colors.black54),
+                              child: SizedBox(
+                                // color: secondryColor,
+                                width: MediaQuery.of(context).size.width - 24,
+                                child: Column(
+                                  spacing: 10,
+                                  children: [
+                                    Container(
+                                      height: 60,
+                                      width:
+                                          MediaQuery.of(context).size.width -
+                                          24,
+                                      decoration: BoxDecoration(),
+                                      child: Row(
+                                        spacing: 10,
+                                        children: [
+                                          Container(
+                                            height: 50,
+                                            width: 60,
+                                            decoration: BoxDecoration(
+                                              color: appColor,
+                                              borderRadius:
+                                                  BorderRadius.circular(8),
+                                            ),
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  "4",
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                ),
+                                                Text(
+                                                  "Mins",
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Expanded(
+                                            child: InkWell(
+                                              onTap: () {
+                                                context.read<HomeBloc>().add(
+                                                  GetLocationEvent(),
+                                                );
+                                              },
+                                              child: SizedBox(
+                                                height: 50,
+                                                width: 60,
+                                                child: Container(
+                                                  constraints: BoxConstraints(
+                                                    maxWidth:
+                                                        MediaQuery.of(
+                                                          context,
+                                                        ).size.width *
+                                                        0.6,
+                                                  ),
+                                                  child: Row(
+                                                    children: [
+                                                      Column(
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Row(
+                                                            children: [
+                                                              ConstrainedBox(
+                                                                constraints: BoxConstraints(
+                                                                  maxWidth:
+                                                                      MediaQuery.of(
+                                                                        context,
+                                                                      ).size.width *
+                                                                      0.6,
+                                                                ),
+                                                                child: Text(
+                                                                  "Delivery To Home",
+                                                                  style: TextStyle(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                              SizedBox(
+                                                                width: 4,
+                                                              ),
+                                                              Icon(
+                                                                Icons
+                                                                    .keyboard_arrow_down,
+                                                                size: 20,
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          Row(
+                                                            children: [
+                                                              Text(
+                                                                location, // Your dynamic text here
+                                                                overflow:
+                                                                    TextOverflow
+                                                                        .ellipsis,
+                                                                style: Theme.of(
+                                                                  context,
+                                                                ).textTheme.bodySmall,
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          InkWell(
+                                            onTap: () {
+                                              Navigator.pushNamed(
+                                                context,
+                                                '/settings',
+                                              );
+                                            },
+                                            child: SvgPicture.asset(
+                                              profilesvg,
+                                              height: 24,
+                                              width: 24,
+                                            ),
+                                          ),
+                                        ],
                                       ),
-                                      // Expanded(
-                                      //   child: TextFormField(
-                                      //     controller: searchController,
-                                      //     onTap: () {
-                                      //       Navigator.push(
-                                      //         context,
-                                      //         MaterialPageRoute(
-                                      //           builder: (context) =>
-                                      //               SearchScreen(),
-                                      //         ),
-                                      //       );
-                                      //     },
-                                      //     style: TextStyle(
-                                      //       fontSize: 16,
-                                      //       color: Colors.black,
-                                      //       fontWeight: FontWeight.w600,
-                                      //     ),
-                                      //     decoration: InputDecoration(
-                                      //       fillColor: Color(0xFFFFFFFF),
-                                      //       hintText: 'Search For "Orange"',
-                                      //       hintStyle:
-                                      //           TextStyle(color: Colors.black54),
-                                      //       border: InputBorder.none,
-                                      //     ),
-                                      //     onChanged: (value) {},
-                                      //   ),
-                                      // ),
-                                    ],
-                                  ),
+                                    ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => SearchScreen(
+                                              searchTitle: "Orange",
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                      child: Container(
+                                        padding: EdgeInsets.symmetric(
+                                          horizontal: 16,
+                                        ),
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius: BorderRadius.circular(
+                                            10,
+                                          ),
+                                          border: Border.all(
+                                            color: greyColor.shade300,
+                                          ),
+                                        ),
+                                        //  width: size.width,
+                                        height: 50,
+                                        child: Row(
+                                          children: [
+                                            Icon(
+                                              Icons.search,
+                                              color: Colors.black54,
+                                            ),
+                                            SizedBox(width: 8),
+                                            Text(
+                                              "Search For 'Orange'",
+                                              style: TextStyle(
+                                                color: Colors.black54,
+                                              ),
+                                            ),
+                                            // Expanded(
+                                            //   child: TextFormField(
+                                            //     controller: searchController,
+                                            //     onTap: () {
+                                            //       Navigator.push(
+                                            //         context,
+                                            //         MaterialPageRoute(
+                                            //           builder: (context) =>
+                                            //               SearchScreen(),
+                                            //         ),
+                                            //       );
+                                            //     },
+                                            //     style: TextStyle(
+                                            //       fontSize: 16,
+                                            //       color: Colors.black,
+                                            //       fontWeight: FontWeight.w600,
+                                            //     ),
+                                            //     decoration: InputDecoration(
+                                            //       fillColor: Color(0xFFFFFFFF),
+                                            //       hintText: 'Search For "Orange"',
+                                            //       hintStyle:
+                                            //           TextStyle(color: Colors.black54),
+                                            //       border: InputBorder.none,
+                                            //     ),
+                                            //     onChanged: (value) {},
+                                            //   ),
+                                            // ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
-                              SizedBox(height: 20),
-                            ],
+                            ),
                           ),
-                        ),
+                        ],
                       ),
+                      SizedBox(height: 20),
                       Padding(
                         padding: const EdgeInsets.only(left: 12.0, right: 12.0),
                         child: Column(
@@ -878,10 +969,10 @@ class HomeWidgetScreen extends StatelessWidget {
                                   ),
                             SizedBox(height: 8),
                             SizedBox(
-                              height: 180,
+                              height: 150,
                               child: ListView.builder(
                                 scrollDirection: Axis.horizontal,
-                                itemCount: dailybanners.length,
+                                itemCount: tenpercetofferbanners.length,
                                 itemBuilder: (context, index) {
                                   return InkWell(
                                     onTap: () {
@@ -891,7 +982,9 @@ class HomeWidgetScreen extends StatelessWidget {
                                           builder: (context) {
                                             return BannerScreen(
                                               bannerId:
-                                                  dailybanners[index].id ?? "",
+                                                  tenpercetofferbanners[index]
+                                                      .id ??
+                                                  "",
                                             );
                                           },
                                         ),
@@ -908,13 +1001,15 @@ class HomeWidgetScreen extends StatelessWidget {
                                         );
                                         noOfIteminCart = cartCount;
                                       });
-                                      debugPrint(dailybanners[index].id);
+                                      debugPrint(
+                                        tenpercetofferbanners[index].id,
+                                      );
                                       //  Navigator.pushNamed(context, '/banner');
                                     },
                                     child: Padding(
                                       padding: const EdgeInsets.only(right: 12),
                                       child: Container(
-                                        width: 314,
+                                        width: 120,
                                         decoration: BoxDecoration(
                                           borderRadius: BorderRadius.circular(
                                             8,
@@ -926,9 +1021,10 @@ class HomeWidgetScreen extends StatelessWidget {
                                           ),
                                           child: ImageNetwork(
                                             url:
-                                                dailybanners[index].imageUrl ??
+                                                tenpercetofferbanners[index]
+                                                    .imageUrl ??
                                                 "",
-                                            fit: BoxFit.cover,
+                                            fit: BoxFit.fill,
                                           ),
                                         ),
                                       ),
@@ -1195,7 +1291,7 @@ class HomeWidgetScreen extends StatelessWidget {
                             //  const SizedBox(height: 26),
                             // const CategoryGrid(),
                             //  const SizedBox(height: 27),
-                            if (offerbanners.isNotEmpty)
+                            if (dealsbanners.isNotEmpty)
                               InkWell(
                                 onTap: () {
                                   Navigator.push(
@@ -1203,7 +1299,7 @@ class HomeWidgetScreen extends StatelessWidget {
                                     MaterialPageRoute(
                                       builder: (context) {
                                         return BannerScreen(
-                                          bannerId: offerbanners[0].id ?? "",
+                                          bannerId: dealsbanners[0].id ?? "",
                                         );
                                       },
                                     ),
@@ -1220,14 +1316,80 @@ class HomeWidgetScreen extends StatelessWidget {
                                     );
                                     noOfIteminCart = cartCount;
                                   });
-                                  debugPrint(offerbanners[0].id ?? "");
+                                  debugPrint(dealsbanners[0].id ?? "");
                                 },
                                 child: ImageNetwork(
-                                  url: offerbanners[0].imageUrl ?? "",
+                                  url: dealsbanners[0].imageUrl ?? "",
                                   width: double.infinity,
                                   fit: BoxFit.contain,
                                 ),
                               ),
+                            SizedBox(height: 8),
+                            SizedBox(
+                              height: 150,
+                              child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: productoffersbanners.length,
+                                itemBuilder: (context, index) {
+                                  return InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) {
+                                            return BannerScreen(
+                                              bannerId:
+                                                  productoffersbanners[index]
+                                                      .id ??
+                                                  "",
+                                            );
+                                          },
+                                        ),
+                                      ).then((value) {
+                                        if (!context.mounted) return;
+                                        context.read<HomeBloc>().add(
+                                          GetCartCountEvent(userId: userId),
+                                        );
+                                        // context
+                                        //     .read<CounterCubit>()
+                                        //     .decrement(cartCount);
+                                        context.read<CounterCubit>().increment(
+                                          cartCount,
+                                        );
+                                        noOfIteminCart = cartCount;
+                                      });
+                                      debugPrint(
+                                        productoffersbanners[index].id,
+                                      );
+                                      //  Navigator.pushNamed(context, '/banner');
+                                    },
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(right: 12),
+                                      child: Container(
+                                        width: 305,
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(
+                                            8,
+                                          ),
+                                        ),
+                                        child: ClipRRect(
+                                          borderRadius: BorderRadius.circular(
+                                            8,
+                                          ),
+                                          child: ImageNetwork(
+                                            url:
+                                                productoffersbanners[index]
+                                                    .imageUrl ??
+                                                "",
+                                            fit: BoxFit.fill,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
                             const SizedBox(height: 17),
                             Text(
                               'Organic & Fresh Fruits',
@@ -1331,10 +1493,8 @@ class HomeWidgetScreen extends StatelessWidget {
                                                             horizontal: 8,
                                                             vertical: 4,
                                                           ),
-                                                      decoration: const BoxDecoration(
-                                                        color: Color(
-                                                          0xFF034703,
-                                                        ),
+                                                      decoration: BoxDecoration(
+                                                        color: secondryColor,
                                                         borderRadius:
                                                             BorderRadius.only(
                                                               topLeft:
@@ -1490,7 +1650,7 @@ class HomeWidgetScreen extends StatelessWidget {
                                                                       decoration: BoxDecoration(
                                                                         border: Border.all(
                                                                           color:
-                                                                              appColor,
+                                                                              secondryColor,
                                                                         ),
                                                                         borderRadius:
                                                                             BorderRadius.circular(
@@ -1502,7 +1662,7 @@ class HomeWidgetScreen extends StatelessWidget {
                                                                           'Add',
                                                                           style: TextStyle(
                                                                             color:
-                                                                                appColor,
+                                                                                secondryColor,
                                                                             fontSize:
                                                                                 12,
                                                                           ),
@@ -1516,10 +1676,10 @@ class HomeWidgetScreen extends StatelessWidget {
                                                                     height: 30,
                                                                     decoration: BoxDecoration(
                                                                       color:
-                                                                          appColor,
+                                                                          secondryColor,
                                                                       border: Border.all(
                                                                         color:
-                                                                            appColor,
+                                                                            secondryColor,
                                                                       ),
                                                                       borderRadius:
                                                                           BorderRadius.circular(
@@ -1569,9 +1729,7 @@ class HomeWidgetScreen extends StatelessWidget {
                                                                                 freshFruitsresponse.data![i].variants![0].cartQuantity.toString(),
                                                                                 textAlign: TextAlign.center,
                                                                                 style: GoogleFonts.poppins(
-                                                                                  color: const Color(
-                                                                                    0xFF326A32,
-                                                                                  ),
+                                                                                  color: secondryColor,
                                                                                   fontSize: 14,
                                                                                   fontWeight: FontWeight.w500,
                                                                                 ),
@@ -1723,10 +1881,8 @@ class HomeWidgetScreen extends StatelessWidget {
                                                             horizontal: 8,
                                                             vertical: 4,
                                                           ),
-                                                      decoration: const BoxDecoration(
-                                                        color: Color(
-                                                          0xFF034703,
-                                                        ),
+                                                      decoration: BoxDecoration(
+                                                        color: secondryColor,
                                                         borderRadius:
                                                             BorderRadius.only(
                                                               topLeft:
@@ -1882,7 +2038,7 @@ class HomeWidgetScreen extends StatelessWidget {
                                                                       decoration: BoxDecoration(
                                                                         border: Border.all(
                                                                           color:
-                                                                              appColor,
+                                                                              secondryColor,
                                                                         ),
                                                                         borderRadius:
                                                                             BorderRadius.circular(
@@ -1894,7 +2050,7 @@ class HomeWidgetScreen extends StatelessWidget {
                                                                           'Add',
                                                                           style: TextStyle(
                                                                             color:
-                                                                                appColor,
+                                                                                secondryColor,
                                                                             fontSize:
                                                                                 12,
                                                                           ),
@@ -1908,10 +2064,10 @@ class HomeWidgetScreen extends StatelessWidget {
                                                                     height: 30,
                                                                     decoration: BoxDecoration(
                                                                       color:
-                                                                          appColor,
+                                                                          secondryColor,
                                                                       border: Border.all(
                                                                         color:
-                                                                            appColor,
+                                                                            secondryColor,
                                                                       ),
                                                                       borderRadius:
                                                                           BorderRadius.circular(
@@ -1961,9 +2117,7 @@ class HomeWidgetScreen extends StatelessWidget {
                                                                                 groceryEssentialsResponse.data![i].variants![0].cartQuantity.toString(),
                                                                                 textAlign: TextAlign.center,
                                                                                 style: GoogleFonts.poppins(
-                                                                                  color: const Color(
-                                                                                    0xFF326A32,
-                                                                                  ),
+                                                                                  color: secondryColor,
                                                                                   fontSize: 14,
                                                                                   fontWeight: FontWeight.w500,
                                                                                 ),
@@ -2112,10 +2266,8 @@ class HomeWidgetScreen extends StatelessWidget {
                                                             horizontal: 8,
                                                             vertical: 4,
                                                           ),
-                                                      decoration: const BoxDecoration(
-                                                        color: Color(
-                                                          0xFF034703,
-                                                        ),
+                                                      decoration: BoxDecoration(
+                                                        color: secondryColor,
                                                         borderRadius:
                                                             BorderRadius.only(
                                                               topLeft:
@@ -2271,7 +2423,7 @@ class HomeWidgetScreen extends StatelessWidget {
                                                                       decoration: BoxDecoration(
                                                                         border: Border.all(
                                                                           color:
-                                                                              appColor,
+                                                                              secondryColor,
                                                                         ),
                                                                         borderRadius:
                                                                             BorderRadius.circular(
@@ -2283,7 +2435,7 @@ class HomeWidgetScreen extends StatelessWidget {
                                                                           'Add',
                                                                           style: TextStyle(
                                                                             color:
-                                                                                appColor,
+                                                                                secondryColor,
                                                                             fontSize:
                                                                                 12,
                                                                           ),
@@ -2297,10 +2449,10 @@ class HomeWidgetScreen extends StatelessWidget {
                                                                     height: 30,
                                                                     decoration: BoxDecoration(
                                                                       color:
-                                                                          appColor,
+                                                                          secondryColor,
                                                                       border: Border.all(
                                                                         color:
-                                                                            appColor,
+                                                                            secondryColor,
                                                                       ),
                                                                       borderRadius:
                                                                           BorderRadius.circular(
@@ -2350,9 +2502,7 @@ class HomeWidgetScreen extends StatelessWidget {
                                                                                 nutsDriedFruitsResponse.data![i].variants![0].cartQuantity.toString(),
                                                                                 textAlign: TextAlign.center,
                                                                                 style: GoogleFonts.poppins(
-                                                                                  color: const Color(
-                                                                                    0xFF326A32,
-                                                                                  ),
+                                                                                  color: secondryColor,
                                                                                   fontSize: 14,
                                                                                   fontWeight: FontWeight.w500,
                                                                                 ),
@@ -2503,10 +2653,8 @@ class HomeWidgetScreen extends StatelessWidget {
                                                             horizontal: 8,
                                                             vertical: 4,
                                                           ),
-                                                      decoration: const BoxDecoration(
-                                                        color: Color(
-                                                          0xFF034703,
-                                                        ),
+                                                      decoration: BoxDecoration(
+                                                        color: secondryColor,
                                                         borderRadius:
                                                             BorderRadius.only(
                                                               topLeft:
@@ -2662,7 +2810,7 @@ class HomeWidgetScreen extends StatelessWidget {
                                                                       decoration: BoxDecoration(
                                                                         border: Border.all(
                                                                           color:
-                                                                              appColor,
+                                                                              secondryColor,
                                                                         ),
                                                                         borderRadius:
                                                                             BorderRadius.circular(
@@ -2674,7 +2822,7 @@ class HomeWidgetScreen extends StatelessWidget {
                                                                           'Add',
                                                                           style: TextStyle(
                                                                             color:
-                                                                                appColor,
+                                                                                secondryColor,
                                                                             fontSize:
                                                                                 12,
                                                                           ),
@@ -2688,10 +2836,10 @@ class HomeWidgetScreen extends StatelessWidget {
                                                                     height: 30,
                                                                     decoration: BoxDecoration(
                                                                       color:
-                                                                          appColor,
+                                                                          secondryColor,
                                                                       border: Border.all(
                                                                         color:
-                                                                            appColor,
+                                                                            secondryColor,
                                                                       ),
                                                                       borderRadius:
                                                                           BorderRadius.circular(
@@ -2741,9 +2889,7 @@ class HomeWidgetScreen extends StatelessWidget {
                                                                                 riceCerealsResponse.data![i].variants![0].cartQuantity.toString(),
                                                                                 textAlign: TextAlign.center,
                                                                                 style: GoogleFonts.poppins(
-                                                                                  color: const Color(
-                                                                                    0xFF326A32,
-                                                                                  ),
+                                                                                  color: secondryColor,
                                                                                   fontSize: 14,
                                                                                   fontWeight: FontWeight.w500,
                                                                                 ),

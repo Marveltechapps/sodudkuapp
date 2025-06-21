@@ -96,7 +96,6 @@ var cancelledImage = "assets/cancelled.png";
 var successImage = "assets/success.png";
 var viewCartImage = "assets/view_cart.png";
 var emptyCartImage = "assets/emptycart.png";
-var locIcon = "assets/locIcon.png";
 var addIcon = "assets/add.png";
 var oneIcon = "assets/one.png";
 var twoIcon = "assets/two.png";
@@ -119,6 +118,7 @@ var notificationIcon = "assets/icons/notification.png";
 var profileIcon = "assets/icons/profile.png";
 var refundsIcon = "assets/icons/refunds.png";
 var suggestIcon = "assets/icons/suggest.png";
+var locIcon = "assets/icons/locIcon.svg";
 
 // gif
 
@@ -127,9 +127,9 @@ var loadGif = "assets/loadgif.gif";
 var getLatLonUrl =
     "https://maps.googleapis.com/maps/api/place/details/json?place_id=";
 
-bool isLive = true;
+bool isLive = false;
 
-var devUrl = "http://43.204.144.74:3000/v1/";
+var devUrl = "http://43.204.144.74:8000/v1/";
 var liveUrl = "http://www.selorg.com/api/v1/";
 
 var baseUrl = isLive ? liveUrl : devUrl;

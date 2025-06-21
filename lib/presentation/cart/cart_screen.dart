@@ -86,7 +86,7 @@ class CartScreen extends StatelessWidget {
                           "Add Address",
                           style: TextStyle(
                             fontSize: 16,
-                            color: appColor,
+                            color: secondryColor,
                             fontWeight: FontWeight.normal,
                           ),
                         ),
@@ -107,7 +107,7 @@ class CartScreen extends StatelessWidget {
                     "You are currently near",
                     style: TextStyle(
                       fontSize: 16,
-                      color: appColor,
+                      color: secondryColor,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -134,7 +134,7 @@ class CartScreen extends StatelessWidget {
                               spacing: 20,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Image.asset(locIcon),
+                                SvgPicture.asset(locIcon),
                                 Expanded(
                                   child: Column(
                                     spacing: 5,
@@ -1597,17 +1597,15 @@ class CartScreen extends StatelessWidget {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.center,
                                               children: [
-                                                const Icon(
+                                                Icon(
                                                   Icons.location_on_outlined,
-                                                  color: Color(0xFF034703),
+                                                  color: secondryColor,
                                                   size: 24,
                                                 ),
                                                 Text(
                                                   'Enter your Delivery Address',
                                                   style: GoogleFonts.poppins(
-                                                    color: const Color(
-                                                      0xFF034703,
-                                                    ),
+                                                    color: secondryColor,
                                                     fontSize: 20,
                                                     fontWeight: FontWeight.w500,
                                                   ),
@@ -1639,9 +1637,7 @@ class CartScreen extends StatelessWidget {
                                                 );
                                               },
                                               style: ElevatedButton.styleFrom(
-                                                backgroundColor: const Color(
-                                                  0xFF034703,
-                                                ),
+                                                backgroundColor: secondryColor,
                                                 shape: RoundedRectangleBorder(
                                                   borderRadius:
                                                       BorderRadius.circular(32),

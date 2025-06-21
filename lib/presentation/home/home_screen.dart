@@ -99,7 +99,7 @@ class HomeScreen extends StatelessWidget {
               }
             },
             child: Scaffold(
-              backgroundColor: const Color(0xFFFAFAFA),
+              backgroundColor: whitecolor,
               appBar: selectedIndex == 1 || selectedIndex == 2
                   ? AppBar(
                       backgroundColor: whitecolor,
@@ -172,7 +172,7 @@ class HomeScreen extends StatelessWidget {
                                 Text(
                                   "Sodakku",
                                   style: TextStyle(
-                                    color: appColor,
+                                    color: secondryColor,
                                     fontSize: 14,
                                     fontWeight: selectedIndex == 0
                                         ? FontWeight.bold
@@ -201,7 +201,7 @@ class HomeScreen extends StatelessWidget {
                                 Text(
                                   "Categories",
                                   style: TextStyle(
-                                    color: appColor,
+                                    color: secondryColor,
                                     fontSize: 14,
                                     fontWeight: selectedIndex == 1
                                         ? FontWeight.bold
@@ -253,7 +253,7 @@ class HomeScreen extends StatelessWidget {
                                             child: Container(
                                               padding: EdgeInsets.all(5),
                                               decoration: BoxDecoration(
-                                                color: Colors.green,
+                                                color: secondryColor,
                                                 shape: BoxShape.circle,
                                               ),
                                               child: Text(
@@ -271,7 +271,7 @@ class HomeScreen extends StatelessWidget {
                                 Text(
                                   "Cart",
                                   style: TextStyle(
-                                    color: appColor,
+                                    color: secondryColor,
                                     fontSize: 14,
                                     fontWeight: selectedIndex == 2
                                         ? FontWeight.bold
